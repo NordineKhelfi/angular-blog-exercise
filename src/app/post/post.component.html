@@ -1,0 +1,23 @@
+<div class="row justify-content-center">
+
+  <div class="card w-50 text-white" [ngClass]="{'bg-secondary': post.Likes == 0, 
+                    'bg-success': post.Likes > 0, 
+                    'bg-danger': post.Likes < 0}"
+    style="margin: 20px">
+    <div class="card-body">
+      <h5 class="card-title">{{post.Title}}</h5>
+      <p class="card-text"><small>Last updated {{post.Date | date: short}}</small></p>
+      <p class="card-text">{{post.Text}}</p>
+    </div>
+    <div class="card-footer">
+      <button class="card-link btn btn-light" (click)="onLike()">
+        <fa name="heart" style="color:#c06c84;"></fa>
+      </button>
+      <button class="card-link btn btn-light" (click)="onUnlike()">
+        <fa name="thumbs-down"></fa>
+      </button>
+      <span style="position: absolute; right: 0px; margin-right: 5%">{{post.Likes}} likes</span>
+    </div>
+  </div>
+
+</div>
